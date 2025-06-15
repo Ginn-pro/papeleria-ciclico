@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papelería Cíclico - Compra Finalizada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #dad7cd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      width: 100%;
+      background-color: #a3b18a;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      width: 200px;
+    }
+    .content {
+      margin-top: 70px;
+      width: 80%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 70px);
+    }
+    .thank-you {
+      background-color: white;
+      padding: 20px;
+      border: 2px solid #a3b18a;
+      border-radius: 5px;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+    .thank-you h1 {
+      font-size: 24px;
+      margin: 0 0 20px;
+    }
+    .thank-you p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+    .thank-you .order-number {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 20px;
+    }
+    .return-button, .logout-button {
+      background-color: #f4a261;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .return-button:hover {
+      background-color: #e76f51;
+    }
+    .logout-button:hover {
+      background-color: #e76f51;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="me gusta escribir">
+    </div>
+  </div>
+  <div class="content">
+    <div class="thank-you">
+      <h1>¡Gracias por tu compra!</h1>
+      <p>Tus datos fueron registrados correctamente :D. Se te enviará un correo con los detalles</p>
+      <div class="order-number">Número de pedido para seguimiento: <span id="order-number"></span></div>
+      <div class="buttons">
+        <button class="return-button" onclick="window.location.href='index.html'">Regresar</button>
+        <button class="logout-button" onclick="window.location.href='iniciarsesion.html'">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Generar número de pedido aleatorio
+    const orderNumber = Math.floor(100000 + Math.random() * 900000);
+    document.getElementById('order-number').textContent = orderNumber;
+  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

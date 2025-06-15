@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papelería Cíclico - Favoritos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #dad7cd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      width: 100%;
+      background-color: #a3b18a;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      width: 200px;
+    }
+    .content {
+      margin-top: 70px;
+      width: 80%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .return-button {
+      background-color: #f4a261;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .return-button:hover {
+      background-color: #e76f51;
+    }
+    .title-section {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .title-section h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .title-section p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    .favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+    .favorite-item {
+      background-color: white;
+      padding: 10px;
+      border: 2px solid #a3b18a;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .favorite-item img {
+      max-width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    .favorite-item .description {
+      flex-grow: 1;
+      font-size: 14px;
+    }
+    .favorite-item .price {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="¿lechuza o mapache?">
+    </div>
+  </div>
+  <div class="content">
+    <button class="return-button" onclick="window.location.href='index.html'">Regresar</button>
+    <div class="title-section">
+      <h1>Favoritos</h1>
+      <p>¡Consulta tus favoritos!</p>
+    </div>
+    <div class="favorites-grid">
+      <div class="favorite-item">
+        <img src="https://via.placeholder.com/100" alt="Gises colores pastel">
+        <div class="description">Gises colores pastel<br>Paquete de gises en tonos pastel</div>
+        <div class="price">$299</div>
+      </div>
+      <div class="favorite-item">
+        <img src="https://via.placeholder.com/100" alt="Marcadores de colores">
+        <div class="description">Marcadores de colores<br>Paquete de marcadores variados</div>
+        <div class="price">$200</div>
+      </div>
+      <div class="favorite-item">
+        <img src="https://via.placeholder.com/100" alt="Gomas color fresa">
+        <div class="description">Goma color fresa<br>Goma de borrar con aroma</div>
+        <div class="price">$50</div>
+      </div>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

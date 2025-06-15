@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papelería Cíclico - Principal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #dad7cd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      width: 100%;
+      background-color: #a3b18a;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+    .header .favorites {
+      display: flex;
+      align-items: center;
+    }
+    .header .favorites button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+    .header .favorites button i {
+      margin-right: 5px;
+    }
+    .header .favorites button:hover {
+      text-decoration: underline;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      width: 200px;
+    }
+    .header .login {
+      background-color: #f4a261;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .nav-menu {
+      margin-top: 70px;
+      width: 100%;
+      background-color: #a3b18a;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .nav-menu select {
+      background-color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .nav-menu button {
+      background-color: #e76f51;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .nav-menu button:hover {
+      background-color: #d62828;
+    }
+    .content {
+      margin-top: 130px;
+      width: 80%;
+      display: grid;
+      grid-template-areas:
+        "price products"
+        "shipping products";
+      gap: 20px;
+    }
+    .price-filter, .shipping-options {
+      background-color: #a3b18a;
+      padding: 20px;
+      border-radius: 5px;
+      color: white;
+    }
+    .price-filter {
+      grid-area: price;
+    }
+    .price-filter input {
+      width: 100px;
+      margin: 0 10px;
+    }
+    .shipping-options {
+      grid-area: shipping;
+    }
+    .shipping-options div {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .shipping-options i {
+      margin-right: 10px;
+    }
+    .products {
+      grid-area: products;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .product-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product-card i {
+      color: #a3b18a;
+    }
+    .product-card button {
+      background-color: #e76f51;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .product-card button:hover {
+      background-color: #d62828;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #dad7cd;
+      padding: 20px;
+      border: 5px solid #a3b18a;
+      border-radius: 5px;
+      text-align: center;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .modal-content h2 {
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+    .modal-content p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    .modal-content .contact-info {
+      text-align: left;
+      font-size: 14px;
+      margin: 20px 0;
+    }
+    .modal-content .contact-info i {
+      margin-right: 10px;
+    }
+    .modal-content .buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .modal-content button {
+      background-color: #f4a261;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .modal-content button:hover {
+      background-color: #e76f51;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="favorites">
+      <button onclick="window.location.href='favoritos.html'"><i class="fas fa-heart"></i> Mis favoritos</button>
+    </div>
+    <div class="search-bar">
+      <i class="fas fa-map-marker-alt"></i>
+      <input type="text" placeholder="Busca aquí, nena.">
+    </div>
+    <button class="login" onclick="window.location.href='iniciarsesion.html'">Iniciar sesión <i class="fas fa-user"></i></button>
+  </div>
+  <div class="nav-menu">
+    <select>
+      <option>Categorías</option>
+    </select>
+    <select>
+      <option>Servicios</option>
+    </select>
+    <select>
+      <option>Tiendas</option>
+    </select>
+    <button onclick="window.location.href='devoluciones.html'">Devoluciones</button>
+    <button onclick="document.getElementById('modal').style.display='flex'">Ayuda</button>
+  </div>
+  <div class="content">
+    <div class="price-filter">
+      <h3>Precio</h3>
+      <input type="number" value="0" min="0"> - <input type="number" value="1000" max="1000">
+    </div>
+    <div class="shipping-options">
+      <h3>Métodos de envío</h3>
+      <div><i class="fas fa-truck"></i> A domicilio</div>
+      <div><i class="fas fa-clock"></i> Express</div>
+      <div><i class="fas fa-stopwatch"></i> On time</div>
+    </div>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Hojas de colores">
+        <i class="fas fa-heart"></i>
+        <h4>Hojas de colores</h4>
+        <p>Paquete de hojas de diferentes colores</p>
+        <p>$100</p>
+        <button onclick="window.location.href='hojascolores.html'">Agregar</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Colores mapita">
+        <i class="fas fa-heart"></i>
+        <h4>Colores mapita</h4>
+        <p>Paquete de colores para mapitas</p>
+        <p>$50</p>
+        <button onclick="window.location.href='coloresmapita.html'">Agregar</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Plumas">
+        <i class="fas fa-heart"></i>
+        <h4>Plumas</h4>
+        <p>Paquete de plumas de colores</p>
+        <p>$60</p>
+        <button onclick="window.location.href='plumas.html'">Agregar</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Goma">
+        <i class="fas fa-heart"></i>
+        <h4>Goma</h4>
+        <p>Goma para borrar de alta calidad</p>
+        <p>$20</p>
+        <button onclick="window.location.href='carrito.html'">Agregar</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Tijeras">
+        <i class="fas fa-heart"></i>
+        <h4>Tijeras</h4>
+        <p>Tijeras de punta fina</p>
+        <p>$40</p>
+        <button onclick="window.location.href='carrito.html'">Agregar</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Carpetas">
+        <i class="fas fa-heart"></i>
+        <h4>Carpetas</h4>
+        <p>Paquete de carpetas de colores</p>
+        <p>$300</p>
+        <button onclick="window.location.href='carrito.html'">Agregar</button>
+      </div>
+    </div>
+  </div>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>¿Necesitas asistencia?</h2>
+      <p>¡Contáctanos!</p>
+      <div class="contact-info">
+        <p>Asesoría vía telefónica y correo</p>
+        <p><i class="fas fa-phone"></i> +55 5555 5555</p>
+        <p><i class="fas fa-envelope"></i> estoesuncorreo@gmail.com</p>
+        <p>¿Quejas?</p>
+      </div>
+      <div class="buttons">
+        <button onclick="window.location.href='quejas.html'">Pica aquí</button>
+        <button onclick="window.location.href='index.html'">Regresa aquí</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
