@@ -6,99 +6,199 @@
   <title>Papelería Cíclico - Favoritos</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #dad7cd;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .header {
-      width: 100%;
-      background-color: #a3b18a;
-      padding: 10px 20px;
-      position: fixed;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .search-bar {
-      display: flex;
-      align-items: center;
-      background-color: white;
-      padding: 5px 10px;
-      border-radius: 20px;
-    }
-    .search-bar input {
-      border: none;
-      outline: none;
-      width: 200px;
-    }
-    .content {
-      margin-top: 70px;
-      width: 80%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .return-button {
-      background-color: #f4a261;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-    .return-button:hover {
-      background-color: #e76f51;
-    }
-    .title-section {
-      text-align: center;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-    .title-section h1 {
-      font-size: 24px;
-      margin: 0;
-    }
-    .title-section p {
-      font-size: 16px;
-      margin: 5px 0;
-    }
-    .favorites-grid {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
-      width: 100%;
-    }
-    .favorite-item {
-      background-color: white;
-      padding: 10px;
-      border: 2px solid #a3b18a;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .favorite-item img {
-      max-width: 100px;
-      height: 100px;
-      object-fit: cover;
-      margin-right: 10px;
-    }
-    .favorite-item .description {
-      flex-grow: 1;
-      font-size: 14px;
-    }
-    .favorite-item .price {
-      font-size: 18px;
-      font-weight: bold;
-    }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #dad7cd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.header {
+  width: 100%;
+  background-color: #a3b18a;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 300px; /* Límite máximo */
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  max-width: 250px; /* Límite interno */
+}
+
+.content {
+  margin-top: 70px;
+  width: 90%;
+  max-width: 1200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.return-button {
+  background-color: #f4a261;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.return-button:hover {
+  background-color: #e76f51;
+}
+
+.title-section {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.title-section h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.title-section p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.favorite-item {
+  background-color: white;
+  padding: 10px;
+  border: 2px solid #a3b18a;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.favorite-item img {
+  max-width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.favorite-item .description {
+  flex-grow: 1;
+  font-size: 0.875rem;
+}
+
+.favorite-item .price {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+/* Media Queries para responsividad */
+
+/* Móviles (≤600px) */
+@media (max-width: 600px) {
+  .header {
+    padding: 8px 10px;
+  }
+  .search-bar {
+    max-width: 200px; /* Más pequeño en móviles */
+  }
+  .search-bar input {
+    max-width: 180px;
+    font-size: 0.9rem;
+  }
+  .content {
+    margin-top: 60px;
+    width: 95%;
+    padding: 10px;
+  }
+  .return-button {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  .title-section h1 {
+    font-size: 1.2rem;
+  }
+  .title-section p {
+    font-size: 0.9rem;
+  }
+  .favorite-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .favorite-item img {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+  .favorite-item .description {
+    font-size: 0.8rem;
+  }
+  .favorite-item .price {
+    font-size: 1rem;
+  }
+}
+
+/* Tablets (601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .content {
+    width: 90%;
+  }
+  .search-bar {
+    max-width: 250px;
+  }
+  .search-bar input {
+    max-width: 220px;
+  }
+  .favorites-grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets */
+  }
+  .title-section h1 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Laptops (>1024px) */
+@media (min-width: 1025px) {
+  .content {
+    width: 80%;
+  }
+  .search-bar {
+    max-width: 300px;
+  }
+  .search-bar input {
+    max-width: 250px;
+  }
+  .favorites-grid {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en laptops */
+  }
+}
   </style>
 </head>
 <body>

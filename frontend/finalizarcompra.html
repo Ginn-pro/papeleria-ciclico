@@ -5,144 +5,260 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Papelería Cíclico - Finalizar Compra</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #dad7cd;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .header {
-      width: 100%;
-      background-color: #a3b18a;
-      padding: 10px 20px;
-      position: fixed;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .search-bar {
-      display: flex;
-      align-items: center;
-      background-color: white;
-      padding: 5px 10px;
-      border-radius: 20px;
-    }
-    .search-bar input {
-      border: none;
-      outline: none;
-      width: 200px;
-    }
-    .content {
-      margin-top: 70px;
-      width: 80%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .address {
-      background-color: white;
-      padding: 20px;
-      border: 2px solid #a3b18a;
-      border-radius: 5px;
-      width: 100%;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .payment-methods {
-      background-color: white;
-      padding: 20px;
-      border: 2px solid #a3b18a;
-      border-radius: 5px;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-    .payment-methods label {
-      display: block;
-      margin: 10px 0;
-      font-size: 16px;
-    }
-    .payment-methods input[type="radio"] {
-      margin-right: 10px;
-    }
-    .card-details, .paypal-details {
-      display: none;
-      margin-top: 10px;
-    }
-    .card-details input, .paypal-details input {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border: 2px solid #a3b18a;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-    .oxxo-details {
-      display: none;
-      margin-top: 10px;
-    }
-    .oxxo-details p {
-      font-size: 16px;
-      margin: 5px 0;
-    }
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-    .return-button, .pay-button {
-      background-color: #f4a261;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .return-button:hover {
-      background-color: #e76f51;
-    }
-    .pay-button {
-      background-color: #e76f51;
-    }
-    .pay-button:hover {
-      background-color: #d62828;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background-color: #dad7cd;
-      padding: 20px;
-      border: 5px solid #a3b18a;
-      border-radius: 5px;
-      text-align: center;
-      font-size: 16px;
-    }
-    .modal-content button {
-      background-color: #f4a261;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 10px;
-    }
-    .modal-content button:hover {
-      background-color: #e76f51;
-    }
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #dad7cd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.header {
+  width: 100%;
+  background-color: #a3b18a;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 300px; /* Límite máximo */
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  max-width: 250px; /* Límite interno */
+}
+
+.content {
+  margin-top: 70px;
+  width: 90%;
+  max-width: 1200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.address {
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #a3b18a;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.payment-methods {
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #a3b18a;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.payment-methods label {
+  display: block;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.payment-methods input[type="radio"] {
+  margin-right: 10px;
+}
+
+.card-details, .paypal-details {
+  display: none;
+  margin-top: 10px;
+}
+
+.card-details input, .paypal-details input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #a3b18a;
+  border-radius: 5px;
+  font-size: 0.875rem;
+}
+
+.oxxo-details {
+  display: none;
+  margin-top: 10px;
+}
+
+.oxxo-details p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.return-button, .pay-button {
+  background-color: #f4a261;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.return-button:hover {
+  background-color: #e76f51;
+}
+
+.pay-button {
+  background-color: #e76f51;
+}
+
+.pay-button:hover {
+  background-color: #d62828;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #dad7cd;
+  padding: 20px;
+  border: 5px solid #a3b18a;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 400px;
+}
+
+.modal-content button {
+  background-color: #f4a261;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.modal-content button:hover {
+  background-color: #e76f51;
+}
+
+/* Media Queries para responsividad */
+
+/* Móviles (≤600px) */
+@media (max-width: 600px) {
+  .header {
+    padding: 8px 10px;
+  }
+  .search-bar {
+    max-width: 200px; /* Más pequeño en móviles */
+  }
+  .search-bar input {
+    max-width: 180px;
+    font-size: 0.9rem;
+  }
+  .content {
+    margin-top: 60px;
+    width: 95%;
+    padding: 10px;
+  }
+  .address, .payment-methods {
+    padding: 15px;
+  }
+  .payment-methods label {
+    font-size: 0.9rem;
+  }
+  .card-details input, .paypal-details input {
+    font-size: 0.8rem;
+  }
+  .oxxo-details p {
+    font-size: 0.9rem;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+  }
+  .return-button, .pay-button {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  .modal-content {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+  .modal-content button {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablets (601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .content {
+    width: 90%;
+  }
+  .search-bar {
+    max-width: 250px;
+  }
+  .search-bar input {
+    max-width: 220px;
+  }
+  .address, .payment-methods {
+    max-width: 500px;
+  }
+  .buttons {
+    max-width: 250px;
+  }
+}
+
+/* Laptops (>1024px) */
+@media (min-width: 1025px) {
+  .content {
+    width: 80%;
+  }
+  .search-bar {
+    max-width: 300px;
+  }
+  .search-bar input {
+    max-width: 250px;
+  }
+}
   </style>
 </head>
 <body>
